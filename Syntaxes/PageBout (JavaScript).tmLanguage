@@ -42,11 +42,15 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>active.dbg.marker.pagebout.js</string>
+			<string>area.dbg.marker.pagebout.js</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>^(?=.*//#dbg\s*$)</string>
+					<key>end</key>
+					<string>(//)(#dbg)\s*$\n</string>
+					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
@@ -59,10 +63,19 @@
 							<string>active.dbg.token.mark.pagebout.comment.line.js</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>(//)(#dbg)\s*$</string>
 					<key>name</key>
-					<string>active.dbg.line.pagebout.js</string>
+					<string>active.dbg.marker.pagebout.js</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.js.jquery</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>source.js</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -99,7 +112,11 @@
 			<string>inactive.dbg.marker.pagebout.js</string>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>^(?=.*//#chk\s*$)</string>
+			<key>end</key>
+			<string>(//)(#chk)\s*$\n</string>
+			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
@@ -112,10 +129,19 @@
 					<string>chk.token.mark.pagebout.comment.line.js</string>
 				</dict>
 			</dict>
-			<key>match</key>
-			<string>(//)(#chk)\s*$</string>
 			<key>name</key>
 			<string>chk.marker.pagebout.js</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.js.jquery</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>captures</key>
