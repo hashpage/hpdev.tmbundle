@@ -64,6 +64,14 @@
 					<key>name</key>
 					<string>active.dbg.line.pagebout.js</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>source.js.jquery</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -108,6 +116,30 @@
 			<string>(//)(#chk)\s*$</string>
 			<key>name</key>
 			<string>chk.marker.pagebout.js</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.punctuation.definition.comment.js</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.require.pagebout.comment.line.js</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>path.require.pagebout.comment.line.js</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(//)\s*(require)\((.*?)\)\s*$\n</string>
+			<key>name</key>
+			<string>require.pagebout.js</string>
 		</dict>
 		<dict>
 			<key>include</key>
