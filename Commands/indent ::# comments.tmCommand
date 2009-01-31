@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+text = ENV['TM_SELECTED_TEXT'] || ENV['TM_CURRENT_LINE']
+do_newlines = text.include?("\n")
+lines = []
+max = 100
+text.split("\n").each do |line|
+	m = line.match(/(.*)(\/\/#.*)/)
+	m = [nil, line, nil] unless m
+	l = m[1].rstrip
+	lines &lt;&lt; [l, m[2]]
+	max = l.size+1 if l.size+1&gt;max
+end
+
+lines.each do |line|
+	res = line[0]
+	if line[1] then
+		while res.size&lt;max do
+			res += " "
+		end
+		res += line[1]
+	end
+	print res
+	print "\n" if do_newlines
+end</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^~.</string>
+	<key>name</key>
+	<string>indent //# comments</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>uuid</key>
+	<string>BB4B0004-610E-439F-95E2-AD39D75ED924</string>
+</dict>
+</plist>
